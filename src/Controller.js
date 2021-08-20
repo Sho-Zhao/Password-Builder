@@ -1,40 +1,36 @@
 import "./controller.css";
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { MenuItem, TextField } from "@material-ui/core";
 
-const Controlls=[
-    {
-        name:"textSize",
-        type:"number",
-        labelmessage:"パスワードのサイズ",
-        min:"8",
-        max:"50",
-    },
-    {
-        name:"isCapital",
-        type:"checkbox",
-        labelmessage:"大文字を使用",
-    },
-    {
-        name:"isSymbol",
-        type:"checkbox",
-        labelmessage:"記号を使用",
-    }
-]
-
-export default function Controller(){
+export default function Controller({isCapital=false,isSymbol=false,handleChange=f=>f}){
+    const sizeValues=[8,12,16,24,30,40,50]
     return(
-        <div class="controller">
+        <div className="controller">
             <table>
+                <tbody>
                 <tr>
-                    {Controlls.map((Controlls)=>(
                         <td>
-                            <label for={Controlls.name}>{Controlls.labelmessage}</label>
-                            {Controlls.type==="number"
-                            ?<input type={Controlls.type} name={Controlls.name} min={Controlls.min} max={Controlls.max}/>
-                            :<input type={Controlls.type} name={Controlls.name}/>
-                            }
+                            <TextField id="outlined-basic" label="パスワードのサイズ" variant="outlined" select helperText="パスワードのサイズ(文字数)を選択してください">
+                                {sizeValues.map((sizeValue,i)=>(
+                                    <MenuItem key={i} value={sizeValue}>
+                                        {sizeValue}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                            {/*<label htmlFor="textSize">パスワードのサイズ</label>
+                            <input type="number" name="textSize" min="8" max="50"/>*/}
                         </td>
-                    ))}
+                        <td>
+                            <FormControlLabel control={<Switch checked={isCapital} onChange={()=>handleChange("isCapital")} name="isCapital"/>} label="大文字を使用"/>
+                            {/*<button onClick={()=>handleChange("isCapital")}>大文字を使用</button>*/}
+                        </td>
+                        <td>
+                            <FormControlLabel control={<Switch checked={isSymbol} onChange={()=>handleChange("isSymbol")} name="isSymbol"/>} label="記号を使用"/>
+                            {/*<button onClick={()=>handleChange("isSymbol")}>記号を使用</button>*/}
+                        </td>
                 </tr>
+                </tbody>
             </table>
         </div>       
     );
