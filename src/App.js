@@ -2,8 +2,11 @@ import './App.css';
 import Display from './Display';
 import Controller from './Controller';
 import React,{ useState } from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
-function Generator(isCapital=false,isSymbol=false,passlength=8){
+function Generator(isCapital=false,isSymbol=false,passlength=12){
   const symbol="!#$%&()";   //Symbol
   const capital="ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //Capital
   const letter=isCapital&&isSymbol? "abcdefghijklmnopqrstuvwxyz0123456789"+symbol+capital
@@ -62,13 +65,32 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Display message={password}/>
+      <header>
+        <AppBar position="static">
+          <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Password Builder
+          </Typography>
+          </Toolbar>
+        </AppBar>
       </header>
-      <Controller isCapital={state[0].value} isSymbol={state[1].value}
-        handleChange={stateName=>{
+      <div className="App-main">
+      <Display message={password}/>
+      </div>
+      <Controller isCapital={state[0].value} isSymbol={state[1].value} textSize={state[2].value}
+        checkChange={handleValue=>{
           const newState=state.map(sta=>
-            sta.name===stateName ? {name:stateName, value:!sta.value} : sta
+            sta.name===handleValue 
+              ? {name:handleValue, value:!sta.value} 
+              : sta
+            );
+            setState(newState);
+        }}
+        sizeChange={handleValue=>{
+          const newState=state.map(sta=>
+            sta.name==="passLength"
+              ?{name:"passLength",value:handleValue}
+              :sta
             );
             setState(newState);
         }}/>

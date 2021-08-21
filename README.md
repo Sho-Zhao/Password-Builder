@@ -2,15 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Install component
-
-This project is using material-ui.\
-Please isnstall material-ui.\
-
-### `npm install @material-ui/core`
-
-Please refer to [material-ui](https://material-ui.com/).
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -77,7 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# Demonstration
-
-[Click!!](https://password-builder-81e6c.web.app/)
