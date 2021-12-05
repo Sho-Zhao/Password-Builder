@@ -1,6 +1,7 @@
 import './App.css';
 import Display from './Display';
 import Controller from './Controller';
+import CopyButton from './CopyButton';
 import React,{ useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -76,6 +77,7 @@ function App() {
       </header>
       <div className="App-main">
       <Display message={password}/>
+      <CopyButton />
       </div>
       <Controller isCapital={state[0].value} isSymbol={state[1].value} textSize={state[2].value}
         checkChange={handleValue=>{
