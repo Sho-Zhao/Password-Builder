@@ -6,7 +6,6 @@ import React,{ useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Generator(isCapital=false,isSymbol=false,passlength=12){
   const symbol="!#$%&()";   //Symbol
