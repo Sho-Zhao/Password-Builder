@@ -1,5 +1,7 @@
+import Button from '@mui/material/Button';
+
 export default function CopyButton(){
     return(
-        <button>Copy</button>
+        <Button variant="contained">Copy</Button>
     );
 }
