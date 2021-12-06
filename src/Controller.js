@@ -1,7 +1,7 @@
 import "./controller.css";
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { MenuItem, TextField } from "@material-ui/core";
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { MenuItem, TextField } from '@mui/material';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Controller({isCapital=false,isSymbol=false,checkChange=f=>f,textSize=12,sizeChange=f=>f}){
